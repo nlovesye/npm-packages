@@ -113,19 +113,19 @@ router.post("/split/:videoName/:name", async (ctx) => {
         const ws = fs.createWriteStream(tempOriginFile);
 
         // 处理流事件
-        rs.once("open", function () {
-            // console.log("可读流打开了");
+        rs.on("error", function (err) {
+            throw new Error(err);
         });
 
-        ws.once("open", function () {
-            // console.log("可写流打开了");
+        ws.on("error", function (err) {
+            throw new Error(err);
         });
 
         ws.once("close", function () {
             // console.log("可写流关闭了");
             // 进行视频切片
             ffmpeg(tempOriginFile)
-                .videoCodec("libx264") // 设置视频编解码器
+                // .videoCodec("libx264") // 设置视频编解码器
                 // .audioCodec('libfaac') // 设置 音频解码器
                 .format("hls") // 输出视频格式
                 .outputOptions("-hls_list_size 0") //  -hls_list_size n:设置播放列表保存的最多条目，设置为0会保存有所片信息，默认值为5
@@ -149,14 +149,6 @@ router.post("/split/:videoName/:name", async (ctx) => {
                     throw err;
                 })
                 .run(); // 执行
-        });
-
-        rs.once("close", function () {
-            // console.log("可读流关闭了");
-        });
-
-        rs.on("error", function (err) {
-            throw new Error(err);
         });
 
         // 可读流通过管道写入可写流
