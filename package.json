@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node bin/www",
-    "dev": "./node_modules/.bin/nodemon bin/www",
-    "prd": "pm2 start bin/www",
+    "start": "node bin/video-player-server",
+    "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/video-player-server",
+    "prd": "cross-env NODE_ENV=prd pm2 start bin/video-player-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "koa2-cors": "2.0.6"
   },
   "devDependencies": {
+    "cross-env": "7.0.3",
     "nodemon": "1.19.1"
   }
 }
