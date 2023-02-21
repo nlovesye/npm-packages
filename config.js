@@ -4,7 +4,7 @@ const PORT = 10000;
 
 const HOME_DIR = "E:/";
 
-const LIBRARY_ROOT = path.join(HOME_DIR, "/Videos");
+const LIBRARY_ROOT = path.join(HOME_DIR, "/VideoLibrary");
 
 console.log("PORT: ", PORT);
 console.log("HOME_DIR: ", HOME_DIR);
