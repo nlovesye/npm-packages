@@ -1,7 +1,6 @@
 const router = require("koa-router")();
 const fs = require("fs");
 const ffmpeg = require("fluent-ffmpeg");
-const { BASE_URL } = require("../config");
 const { resolveLibraryDir } = require("../util");
 
 router.prefix("/api/video");
@@ -47,7 +46,7 @@ router.get(`/:name`, async (ctx) => {
             if (statInfo.isDirectory()) {
                 subs.push({
                     name: v,
-                    url: `${BASE_URL}/${name}/${v}/${v}.m3u8`,
+                    url: `/${name}/${v}/${v}.m3u8`,
                 });
             }
         });
