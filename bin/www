@@ -84,6 +84,6 @@ function onError(error) {
 function onListening() {
     var addr = server.address();
     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    console.log("服务启动>>>>>>>", `http://localhost:${addr.port}`);
+    console.log("服务启动>>>>>>>", `http://127.0.0.1:${addr.port}`);
     debug("Listening on " + bind);
 }
