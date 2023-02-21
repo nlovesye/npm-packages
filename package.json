@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node bin/video-player-server",
     "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/video-player-server",
-    "prd": "cross-env NODE_ENV=prd pm2 start bin/video-player-server",
+    "prd": "cross-env NODE_ENV=dev pm2 start bin/video-player-server",
+    "prd:win": "cross-env NODE_ENV=prd pm2 start bin/video-player-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
