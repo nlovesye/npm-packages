@@ -1,7 +1,10 @@
 const router = require("koa-router")();
 const fs = require("fs");
 const ffmpeg = require("fluent-ffmpeg");
+const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const { resolveLibraryDir } = require("../util");
+
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 router.prefix("/api/video");
 
