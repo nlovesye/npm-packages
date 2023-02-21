@@ -46,7 +46,7 @@ router.get(`/:name`, async (ctx) => {
             if (statInfo.isDirectory()) {
                 subs.push({
                     name: v,
-                    url: `/${name}/${v}/${v}.m3u8`,
+                    url: `${name}/${v}/${v}.m3u8`,
                 });
             }
         });
