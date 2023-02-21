@@ -25,13 +25,7 @@ app.use(
     })
 );
 app.use(json());
-app.use(
-    logger({
-        transporter: (str, args) => {
-            console.log(args);
-        },
-    })
-);
+app.use(logger());
 app.use(range);
 app.use(serveStatic(LIBRARY_ROOT));
 
