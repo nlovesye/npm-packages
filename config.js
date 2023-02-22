@@ -12,7 +12,7 @@ const PORT = isPrd ? 10000 : 11000;
 
 const HOME_DIR = !isMac ? "E:/" : process.env.HOME;
 
-const LIBRARY_ROOT = path.join(HOME_DIR, !isMac ? "VideoLibrary" : "Downloads/VideoLib");
+const LIBRARY_ROOT = path.join(HOME_DIR, !isMac ? "VideoLibrary" : "Desktop/VideoLib");
 
 const WEB_STATIC = path.join(__dirname, "web");
 
