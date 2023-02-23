@@ -1,7 +1,7 @@
 import { User } from "@/models";
 
 // 项目根路径
-export const BASE_URL = "development" !== process.env.NODE_ENV ? "" : "";
+export const BASE_URL = "development" !== process.env.NODE_ENV ? "" : `//${window.location.hostname}:9900`;
 
 export const API_PREFIX = `${BASE_URL}/api`;
 

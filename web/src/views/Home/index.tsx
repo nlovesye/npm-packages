@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <section className={styles.container}>
       <div className={styles.listHeader}>
-        {!keyword ? "所有影视列表" : `“${keyword}”的搜索结果：`}
+        {!keyword ? "影视列表" : `“${keyword}”的搜索结果：`}
         <div className={styles.searchBox}>
           <Search placeholder="输入关键字搜索" onSearch={setKeyword} />
         </div>
