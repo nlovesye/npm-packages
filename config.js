@@ -8,13 +8,13 @@ const isPrd = "prd" === NODE_ENV;
 
 const isMac = "mac" === SYS;
 
-const PORT = isPrd ? 10000 : 11000;
+const PORT = isPrd ? 10000 : 9900;
 
 const HOME_DIR = !isMac ? "E:/" : process.env.HOME;
 
 const LIBRARY_ROOT = path.join(HOME_DIR, !isMac ? "VideoLibrary" : "Desktop/VideoLib");
 
-const WEB_STATIC = path.join(__dirname, "web");
+const WEB_STATIC = path.join(__dirname, "web/build");
 
 console.log("NODE_ENV: ", process.env.NODE_ENV);
 console.log("SYS: ", SYS);
