@@ -54,6 +54,9 @@ router.get(`/:name`, async (ctx) => {
             }
         });
 
+        // 根据名称排序
+        subs.sort((a, b) => a.name - b.name);
+
         const result = {
             name,
             subs,
