@@ -36,6 +36,7 @@ export default function VideoPlayer() {
             <Player
                 url={currentVideo?.url}
                 emptyCover="从播放列表选择影片播放"
+                emptyCoverWrapperClassName={styles.player}
             />
 
             <div className={styles.playerListHeader}>播放列表</div>

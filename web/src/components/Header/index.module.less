@@ -1,62 +1,66 @@
 @import "~@/styles/variable.less";
 
 .header {
-  height: @headerHeight;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 12px;
-  background-color: #0f0f0f;
-  box-shadow: 0 1px 5px #000;
-
-  .logoBox {
-    cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
-    font-size: 0;
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-
-    .logo {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .extraBox {
+    height: @headerHeight;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-grow: 0;
+    padding: 0 12px;
+    background-color: #0f0f0f;
+    box-shadow: 0 1px 5px #000;
 
-    .manageLink {
-      color: @primaryColor;
-      display: inline-block;
-      padding: 6px;
-      background-color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-right: 12px;
-      font-size: 14px;
+    .menuBox {
+        flex-grow: 1;
+        flex-shrink: 0;
+        display: flex;
 
-      &:hover {
-        background-color: #ebebeb;
-      }
+        .logo {
+            cursor: pointer;
+            border-radius: 5px;
+            overflow: hidden;
+            font-size: 0;
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+            margin-right: 12px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover {
+                img {
+                    transition: opacity 160ms;
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        .menu {
+            flex: auto;
+
+            :global {
+                .ant-menu-item {
+                    border-radius: 2px;
+                }
+            }
+        }
     }
 
     .userIcon {
-      font-size: 22px;
-      cursor: pointer;
-      padding: 5px;
-      border: 1px solid #fff;
-      border-radius: 4px;
-      color: #fff;
-      transition: all 180ms;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 5px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        color: #fff;
+        transition: all 180ms;
+        margin-left: 12px;
 
-      &:hover {
-        border-color: @primaryColor;
-        color: @primaryColor;
-      }
+        &:hover {
+            border-color: @primaryColor;
+            color: @primaryColor;
+        }
     }
-  }
 }
