@@ -29,7 +29,7 @@ router.get(`/list`, async (ctx) => {
         console.log("api-video-list", error);
 
         ctx.status = 500;
-        ctx.body = { message: error.message || "未知错误" };
+        ctx.body = [];
     }
 });
 

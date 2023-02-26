@@ -20,6 +20,7 @@ const uploadProps: UploadProps = {
 
 export default function LocalPlayer() {
     const [url, setUrl] = useState<string>();
+    const [currentFileName, setCurrentFileName] = useState<string>("");
 
     const customRequest: UploadProps["customRequest"] = useMemo(
         () =>
@@ -31,7 +32,10 @@ export default function LocalPlayer() {
 
                 const objURL = getObjectURL(file as RcFile);
 
+                const { name } = file as RcFile;
+
                 setUrl(objURL);
+                setCurrentFileName(name);
 
                 hideLoading();
 
@@ -42,10 +46,12 @@ export default function LocalPlayer() {
 
     const onChange = useCallback(() => {
         setUrl(undefined);
+        setCurrentFileName("");
     }, []);
 
     return (
         <div className={styles.container}>
+            <div className={styles.header}>当前正在播放：{currentFileName}</div>
             <Player
                 url={url}
                 emptyCover={
