@@ -12,7 +12,7 @@
       "no-private": true
     },
     "publish": {
-      "ignoreChanges": ["ignored-file"],
+      "ignoreChanges": ["ignored-file", "package-lock.json"],
       "message": "chore(publish): package published: "
     }
   }
