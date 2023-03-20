@@ -13,7 +13,6 @@
     },
     "publish": {
       "ignoreChanges": ["ignored-file"],
-      "registry": "http://registry.npmjs.org",
       "message": "chore(publish): package published: "
     }
   }
