@@ -1,8 +1,8 @@
 {
-  "name": "@ns/utils",
+  "name": "npm-packages",
   "version": "1.0.0",
   "private": "true",
-  "description": "utils lib",
+  "description": "npm packages repository by ns",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -14,17 +14,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nlovesye/utils.git"
+    "url": "git+https://github.com/nlovesye/npm-packages.git"
   },
   "keywords": [
-    "utils"
+    "private npm packages"
   ],
   "author": "ns",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nlovesye/utils/issues"
+    "url": "https://github.com/nlovesye/npm-packages/issues"
   },
-  "homepage": "https://github.com/nlovesye/utils#readme",
+  "homepage": "https://github.com/nlovesye/npm-packages#readme",
   "devDependencies": {
     "@types/node": "^18.15.3",
     "cross-env": "^7.0.3",
