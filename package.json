@@ -7,7 +7,8 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "lerna run build --concurrency=3 --no-private"
+    "build": "lerna run build --concurrency=3 --no-private",
+    "publish": "lerna publish patch -y"
   },
   "workspaces": [
     "packages/utils"
