@@ -8,7 +8,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "lerna run build --concurrency=3 --no-private",
-    "publish": "lerna publish patch -y"
+    "publish": "lerna publish patch -y",
+    "release": "npm-run-all -s build publish"
   },
   "workspaces": [
     "packages/utils"
