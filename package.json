@@ -1,11 +1,7 @@
 {
   "name": "npm-packages",
   "version": "1.0.0",
-  "private": "true",
   "description": "npm packages repository by ns",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "lerna run build --concurrency=3 --no-private",
     "publish": "lerna publish patch -y",
