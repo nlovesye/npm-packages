@@ -1,0 +1,19 @@
+{
+  "useWorkspaces": true,
+  "version": "independent",
+  "npmClient": "npm",
+  "command": {
+    "bootstrap": {
+      "hoist": true,
+      "ignoreScripts": ["prepare", "prepublish"]
+    },
+    "version": {
+      "exact": true,
+      "no-private": true
+    },
+    "publish": {
+      "ignoreChanges": ["ignored-file"],
+      "message": "chore(publish): package published: "
+    }
+  }
+}
