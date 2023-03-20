@@ -29,5 +29,9 @@
   },
   "author": "ns",
   "license": "ISC",
-  "gitHead": "53d819ac570ea1d3c7b716b0a4cca1f79baf1f68"
+  "files": [
+    "dist/*",
+    "README.md"
+  ],
+  "gitHead": "6754a6281a9c1c8e005a66733b0a9f46f0f65b05"
 }
