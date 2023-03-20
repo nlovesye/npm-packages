@@ -26,5 +26,8 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript-paths": "^1.4.0"
-  }
+  },
+  "author": "ns",
+  "license": "ISC",
+  "gitHead": "53d819ac570ea1d3c7b716b0a4cca1f79baf1f68"
 }
