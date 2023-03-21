@@ -1,38 +1,58 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
-import pkg from "./package.json";
-
-const plugins = [
-  peerDepsExternal(),
-  typescriptPaths({ preserveExtensions: true }),
-  nodeResolve({
-    preferBuiltins: true,
-    browser: true,
-  }),
-  commonjs(),
-  terser({
-    output: {
-      beautify: false,
-    },
-  }),
-];
+import { babel } from "@rollup/plugin-babel";
+import esbuild from "rollup-plugin-esbuild";
+import dts from "rollup-plugin-dts";
 
 const moduleBuildConfig = {
   input: "src/index.ts",
   output: [
     {
-      file: pkg.main,
+      file: "dist/index.cjs.js",
       format: "cjs",
     },
     {
-      file: pkg.module,
+      file: "dist/index.esm.js",
       format: "esm",
     },
   ],
-  plugins,
+  plugins: [
+    typescriptPaths({ preserveExtensions: true }),
+    nodeResolve({
+      preferBuiltins: true,
+      browser: true,
+    }),
+    commonjs(),
+    esbuild({
+      include: /\.ts$/,
+      exclude: /node_modules/,
+      tsconfig: "tsconfig.json", // default
+    }),
+    babel({
+      extensions: [".ts"],
+      include: ["src"], // 只编译我们的源代码
+      // babelHelpers: "runtime",
+      // plugins: [["@babel/plugin-transform-runtime", { useESModules: true }]],
+    }),
+    terser({
+      output: {
+        beautify: false,
+      },
+    }),
+  ],
 };
 
-export default moduleBuildConfig;
+const dtsBuildConfig = {
+  input: "src/index.ts",
+  output: [
+    {
+      file: "dist/index.d.ts",
+      format: "es",
+    },
+  ],
+  plugins: [typescriptPaths({ preserveExtensions: true }), dts()],
+};
+
+export default [moduleBuildConfig, dtsBuildConfig];

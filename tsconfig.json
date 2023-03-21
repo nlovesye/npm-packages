@@ -3,13 +3,39 @@
     "target": "es5",
     "module": "esnext",
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "emitDeclarationOnly": true,
-    "declaration": true
+    "declaration": false,
+    // 用来指定允许从没有默认导出的模块中默认导入 
+    "allowSyntheticDefaultImports": true,
+    // 检查switch中是否有case没有使用break跳出switch
+    "noFallthroughCasesInSwitch": true,
+    // 用于检查函数是否有返回值，设为true后，如果函数没有返回值则会提示
+    "noImplicitReturns": true,
+    // 可允许从 .json 中导入、导出其类型。
+    "resolveJsonModule": true,
+    // 为了能让我们导入类型：import type ** from **
+    "isolatedModules": true,
+    // 编译时是否生成.map文件
+    "sourceMap": false,
+    // 编译的时候删除注释 
+    "removeComments": false,
+    // 当target为'ES5' or 'ES3'时，为'for-of', spread, and destructuring'中的迭代器提供完全支持
+    "downlevelIteration": true,
+    //  // 编译过程中需要引入的库文件的列表
+    //  "lib": [
+    //    "dom",
+    //    "dom.iterable",
+    //    "es5",
+    //    "es2015",
+    //    "es2016",
+    //    "es2017",
+    //    "es2018",
+    //    "esnext"
+    //  ],
   },
   // 只编译 src 目录下的文件
   "include": [

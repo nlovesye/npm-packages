@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "npm packages repository by ns",
   "scripts": {
-    "build": "lerna run build --concurrency=3 --no-private",
-    "publish": "lerna publish patch -y",
-    "release": "npm-run-all -s build publish"
+    "build": "lerna run build --concurrency=2 --no-private",
+    "publish:patch": "lerna publish patch -y",
+    "publish:minor": "lerna publish minor -y",
+    "publish:major": "lerna publish major -y",
+    "release:patch": "npm-run-all -s build publish:patch",
+    "release:minor": "npm-run-all -s build publish:minor",
+    "release:major": "npm-run-all -s build publish:major"
   },
   "workspaces": [
     "packages/utils"
