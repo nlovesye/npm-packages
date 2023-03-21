@@ -1,5 +1,5 @@
 {
-  "name": "@ns/utils",
+  "name": "@nlovesye/utils",
   "version": "0.3.1",
   "description": "utils lib",
   "main": "dist/index.cjs.js",
@@ -37,5 +37,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "7eebc26b93d1e18e4464394927206e530aa454a9"
+  "gitHead": "2416cb9f943d64a086a395a4b15b007bbc7da848"
 }
