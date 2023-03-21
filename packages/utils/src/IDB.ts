@@ -6,7 +6,7 @@ interface IDBOptions {
   name: string;
   version: number;
   timeout: number;
-  initIDBStore?: <T extends IDBDatabase>(db: T) => void;
+  initIDBObjectStore?: <T extends IDBDatabase>(db: T) => void;
 }
 
 interface IDB<S extends string = string> extends IDBDatabase {
@@ -26,7 +26,12 @@ interface IDBHandle<S extends string = string> {
 function createIDB<S extends string = string>(
   options: Pick<IDBOptions, "name"> & Partial<Omit<IDBOptions, "name">>
 ): IDBHandle<S> {
-  const { version = DB_VERSION, timeout = 1500, initIDBStore, name } = options;
+  const {
+    version = DB_VERSION,
+    timeout = 1500,
+    initIDBObjectStore,
+    name,
+  } = options;
 
   // 初始化 打开数据库请求
   let openIDBHandle: Nullable<IDBOpenDBRequest>;
@@ -59,7 +64,7 @@ function createIDB<S extends string = string>(
       openIDBHandle.onupgradeneeded = (ev) => {
         const db = (ev.currentTarget as IDBOpenDBRequest).result;
         openIDBHandle = null;
-        initIDBStore?.(db);
+        initIDBObjectStore?.(db);
         resolve(db);
       };
 
@@ -78,7 +83,7 @@ function createIDB<S extends string = string>(
     db.onversionchange = (ev) => {
       const changedDB = ev.currentTarget as IDBDatabase;
       idb = dbTransform<S>(changedDB);
-      initIDBStore?.(idb);
+      initIDBObjectStore?.(idb);
     };
 
     db.onabort = () => {
