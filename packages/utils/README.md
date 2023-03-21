@@ -1,4 +1,4 @@
-# @ns/utils
+# @nlovesye/utils
 
 ## Available Scripts
 
