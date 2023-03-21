@@ -2,6 +2,10 @@
   "name": "npm-packages",
   "version": "1.0.0",
   "description": "npm packages repository by ns",
+  "author": "ns",
+  "workspaces": [
+    "packages/utils"
+  ],
   "scripts": {
     "build": "lerna run build --concurrency=2 --no-private",
     "publish:patch": "lerna publish patch -y",
@@ -11,21 +15,6 @@
     "release:minor": "npm-run-all -s build publish:minor",
     "release:major": "npm-run-all -s build publish:major"
   },
-  "workspaces": [
-    "packages/utils"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nlovesye/npm-packages.git"
-  },
-  "keywords": [
-    "private npm packages"
-  ],
-  "author": "ns",
-  "bugs": {
-    "url": "https://github.com/nlovesye/npm-packages/issues"
-  },
-  "homepage": "https://github.com/nlovesye/npm-packages#readme",
   "devDependencies": {
     "@types/node": "^18.15.3",
     "cross-env": "^7.0.3",
@@ -33,5 +22,17 @@
     "npm-run-all": "^4.1.5",
     "tslib": "^2.5.0",
     "typescript": "^5.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlovesye/npm-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nlovesye/npm-packages/issues"
+  },
+  "keywords": [
+    "nlovesye",
+    "packages"
+  ],
+  "homepage": "https://github.com/nlovesye/npm-packages#readme"
 }
