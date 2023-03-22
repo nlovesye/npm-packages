@@ -1,0 +1,13 @@
+@import '~@/styles/variable.less';
+
+.main {
+  width: 100%;
+  height: calc(100% - @headerHeight);
+  display: flex;
+
+  .content {
+    height: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+}

@@ -1,11 +1,9 @@
 {
   "name": "npm-packages",
   "version": "1.0.0",
-  "description": "npm packages repository by ns",
+  "description": "nlovesye npm packages",
   "author": "ns",
-  "workspaces": [
-    "packages/utils"
-  ],
+  "license": "MIT",
   "scripts": {
     "build": "lerna run build --concurrency=2 --no-private",
     "publish:patch": "lerna publish patch -y",
@@ -15,14 +13,10 @@
     "release:minor": "npm-run-all -s build publish:minor",
     "release:major": "npm-run-all -s build publish:major"
   },
-  "devDependencies": {
-    "@types/node": "^18.15.3",
-    "cross-env": "^7.0.3",
-    "lerna": "^6.5.1",
-    "npm-run-all": "^4.1.5",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.2"
-  },
+  "workspaces": [
+    "packages/cli",
+    "packages/utils"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nlovesye/npm-packages.git"
@@ -30,9 +24,17 @@
   "bugs": {
     "url": "https://github.com/nlovesye/npm-packages/issues"
   },
+  "homepage": "https://github.com/nlovesye/npm-packages#readme",
   "keywords": [
     "nlovesye",
     "packages"
   ],
-  "homepage": "https://github.com/nlovesye/npm-packages#readme"
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "cross-env": "^7.0.3",
+    "lerna": "^6.5.1",
+    "npm-run-all": "^4.1.5",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.2"
+  }
 }

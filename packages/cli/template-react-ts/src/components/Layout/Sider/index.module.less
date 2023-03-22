@@ -1,0 +1,58 @@
+@import '~@/styles/variable.less';
+
+@collapsedButtonHeight: 36px;
+
+.sider {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: @siderWidth;
+  height: 100%;
+  background-color: @colorBgLayout;
+  transition: all 180ms;
+
+  .menu {
+    height: calc(100% - @collapsedButtonHeight);
+  }
+
+  .collapseButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: @collapsedButtonHeight;
+    color: @colorText;
+    font-size: 18px;
+    line-height: @collapsedButtonHeight;
+    text-align: center;
+    background-color: @colorFillTertiary;
+    cursor: pointer;
+    transition: all 180ms;
+
+    .collapseIcon {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      background-color: @colorFill;
+    }
+  }
+
+  &.collapsed {
+    width: @siderCollapsedWidth;
+
+    .menu {
+      display: none;
+    }
+
+    .collapseButton {
+      bottom: 32px;
+      width: @collapsedButtonHeight;
+      border-radius: 0 4px 4px 0;
+
+      .collapseIcon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

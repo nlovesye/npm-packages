@@ -1,0 +1,49 @@
+{
+  "name": "@nlovesye/cli",
+  "version": "0.0.1",
+  "description": "ns cli",
+  "author": "ns",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "create-ns-app": "index.js",
+    "cna": "index.js"
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "files": [
+    "index.js",
+    "dist",
+    "template-*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlovesye/npm-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nlovesye/npm-packages/issues"
+  },
+  "homepage": "https://github.com/nlovesye/npm-packages/tree/master/packages/cli#readme",
+  "keywords": [
+    "create-ns-app",
+    "cna"
+  ],
+  "devDependencies": {
+    "@types/prompts": "^2.4.3",
+    "kolorist": "^1.7.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "unbuild": "^1.1.2"
+  }
+}
