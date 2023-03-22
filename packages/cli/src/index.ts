@@ -157,6 +157,7 @@ async function init() {
         },
       }
     );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (cancelled: any) {
     console.log(cancelled.message);
     return;
@@ -189,7 +190,7 @@ async function init() {
 
   const write = (file: string, content?: string) => {
     const targetPath = path.join(root, renameFiles[file] ?? file);
-    console.log('xx', targetPath, content)
+    console.log("xx", targetPath, content);
     if (content) {
       fs.writeFileSync(targetPath, content);
     } else {
