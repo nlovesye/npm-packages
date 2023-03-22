@@ -1,14 +1,14 @@
 {
   "name": "@nlovesye/cli",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "ns cli",
   "author": "ns",
   "license": "MIT",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "create-ns-app": "index.js",
-    "cna": "index.js"
+    "ns-create-app": "index.js",
+    "nca": "index.js"
   },
   "scripts": {
     "dev": "unbuild --stub",
@@ -36,8 +36,8 @@
   },
   "homepage": "https://github.com/nlovesye/npm-packages/tree/master/packages/cli#readme",
   "keywords": [
-    "create-ns-app",
-    "cna"
+    "ns-create-app",
+    "nca"
   ],
   "devDependencies": {
     "@types/prompts": "^2.4.3",
