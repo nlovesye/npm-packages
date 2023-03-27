@@ -13,7 +13,7 @@ interface Props {
   children?: ReactNode;
 }
 
-export const Layout: FC<Props> = ({ children }) => {
+const Layout: FC<Props> = ({ children }) => {
   const contentStyle = useThemeTokenSelector(({ sizeSM, colorBgContainer }) => ({
     padding: sizeSM,
     background: colorBgContainer,
@@ -27,12 +27,11 @@ export const Layout: FC<Props> = ({ children }) => {
         <Sider />
 
         <div className={styles.content} style={contentStyle}>
-          <Suspense fallback={<LoadingSpin />}>
-            {children}
-            <Outlet />
-          </Suspense>
+          <Suspense fallback={<LoadingSpin />}>{children ?? <Outlet />}</Suspense>
         </div>
       </div>
     </>
   );
 };
+
+export default Layout;

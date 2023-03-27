@@ -7,9 +7,9 @@ import { AppstoreOutlined } from '@ant-design/icons';
 import NotFound from '@/views/404';
 import { useAppSelector } from '@/store';
 import { isAdminSelector } from '@/store/user/selector';
-import { Layout } from '@/components/Layout';
 
 const Home = lazy(() => import('@/views/Home'));
+const Layout = lazy(() => import('@/components/Layout'));
 
 interface RouteObj {
   children?: RouteExtendObject[];

@@ -8,7 +8,7 @@ import Routes from './routes';
 const Router: FC = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<LoadingSpin />}>
+      <Suspense fallback={<LoadingSpin tip="loading..." />}>
         <Routes />
       </Suspense>
     </BrowserRouter>

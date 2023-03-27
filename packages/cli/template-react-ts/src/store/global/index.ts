@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import type { GlobalState } from '@/models';
-import defaultTheme from '@/config/theme/default.json';
+import defaultTheme from '@/styles/theme/default.json';
 
 const initialState: GlobalState = {
   loading: false,
