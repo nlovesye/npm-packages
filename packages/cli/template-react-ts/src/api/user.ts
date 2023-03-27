@@ -1,5 +1,5 @@
 import type { User } from '@/models';
-import {  sleep } from '@/utils';
+import { sleep } from '@/utils';
 
 // const request = genAxiosRequest();
 
