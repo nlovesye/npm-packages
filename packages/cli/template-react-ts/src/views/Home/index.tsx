@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout';
+import Layout from '@/components/Layout';
 import { useThemeTokenSelector } from '@/hooks/useThemeTokenSelector';
 
 import styles from './index.module.less';
