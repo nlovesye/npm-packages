@@ -14,10 +14,7 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({ children }) => {
-  const contentStyle = useThemeTokenSelector(({ sizeSM, colorBgContainer }) => ({
-    padding: sizeSM,
-    background: colorBgContainer,
-  }));
+  const { sizeSM, colorBgContainer } = useThemeTokenSelector((d) => d);
 
   return (
     <>
@@ -26,7 +23,13 @@ const Layout: FC<Props> = ({ children }) => {
       <div className={styles.main}>
         <Sider />
 
-        <div className={styles.content} style={contentStyle}>
+        <div
+          className={styles.content}
+          style={{
+            padding: sizeSM,
+            background: colorBgContainer,
+          }}
+        >
           <Suspense fallback={<LoadingSpin />}>{children ?? <Outlet />}</Suspense>
         </div>
       </div>

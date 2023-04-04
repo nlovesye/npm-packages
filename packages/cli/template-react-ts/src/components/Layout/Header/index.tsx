@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { Avatar, Button, Spin } from 'antd';
 
 import { useAppDispatch, useAppSelector } from '@/store';
-import { changeThemeType } from '@/store/global/asyncAction';
+import { changeLocaleType, changeThemeType } from '@/store/global/asyncAction';
 import { useThemeTokenSelector } from '@/hooks/useThemeTokenSelector';
 import logo from '@/assets/favicon.png';
 
@@ -12,16 +12,13 @@ import styles from './index.module.less';
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
 
-  const [{ name, loading: userLoading }, { themeType, loading: globalLoading }] = useAppSelector(
-    (state) => [state.user, state.global],
-  );
+  const [{ loading: userLoading }, { themeType, localeType, loading: globalLoading }] =
+    useAppSelector((state) => [state.user, state.global]);
 
-  const headerStyle = useThemeTokenSelector(({ boxShadowTertiary }) => ({
-    boxShadow: boxShadowTertiary,
-  }));
+  const { boxShadowTertiary, marginXS } = useThemeTokenSelector((d) => d);
 
   return (
-    <header className={styles.header} style={headerStyle}>
+    <header className={styles.header} style={{ boxShadow: boxShadowTertiary }}>
       <Link to="/" className={styles.logo}>
         <Avatar src={logo} alt="logo" />
       </Link>
@@ -33,12 +30,20 @@ export const Header: FC = () => {
           <Button
             type="primary"
             onClick={() => {
+              dispatch(changeLocaleType('zh_CN' === localeType ? 'en_US' : 'zh_CN'));
+            }}
+            style={{ marginRight: marginXS }}
+          >
+            {localeType}
+          </Button>
+          <Button
+            type="primary"
+            onClick={() => {
               dispatch(changeThemeType('default' === themeType ? 'dark' : 'default'));
             }}
           >
             切换主题
           </Button>
-          user: {name}
         </div>
       )}
     </header>

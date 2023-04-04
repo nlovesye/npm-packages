@@ -1,11 +1,10 @@
 import { theme } from 'antd';
 import type { GlobalToken } from 'antd';
-import type { CSSProperties } from 'react';
 
 const { useToken } = theme;
 
 interface Selector {
-  (token: GlobalToken): CSSProperties | GlobalToken;
+  (token: GlobalToken): GlobalToken;
 }
 
 export function useThemeTokenSelector(selector: Selector): ReturnType<Selector> {

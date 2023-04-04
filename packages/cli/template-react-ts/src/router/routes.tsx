@@ -51,7 +51,7 @@ export const ROUTES: RouteExtendObject[] = [
         label: '权限管理',
         icon: <AppstoreOutlined />,
       },
-    ],
+    ] as RouteExtendObject[],
   },
   {
     path: '*',

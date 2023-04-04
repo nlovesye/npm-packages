@@ -32,9 +32,7 @@ export const Sider: FC = () => {
   const [openKeys, setOpenKeys] = useState<string[]>([`/${openKey}`]);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([`/${openKey}/${selectedKey}`]);
 
-  const siderStyle = useThemeTokenSelector(({ boxShadowTertiary }) => ({
-    boxShadow: boxShadowTertiary,
-  }));
+  const { boxShadowTertiary } = useThemeTokenSelector((d) => d);
 
   const menuItems = useMemo(() => {
     const routes = getSiderMenuRoutes();
@@ -66,7 +64,9 @@ export const Sider: FC = () => {
       className={classNames(styles.sider, {
         [styles.collapsed]: collapsed,
       })}
-      style={siderStyle}
+      style={{
+        boxShadow: boxShadowTertiary,
+      }}
     >
       <Menu
         className={styles.menu}
