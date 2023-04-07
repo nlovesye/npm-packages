@@ -8,7 +8,7 @@ export default async function send(sendInfo) {
   // let testAccount = await nodemailer.createTestAccount();
 
   const mailUser = '894765963@qq.com';
-  const mailPassCode = 'dglgztybfidubbga';
+  const mailPassCode = 'dglgztybfidubbga-xxxxx';
 
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({

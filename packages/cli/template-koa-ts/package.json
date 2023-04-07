@@ -7,7 +7,7 @@
   "scripts": {
     "webpack:debug": "node --inspect-brk ./node_modules/.bin/webpack --inline --progress",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress --config config/webpack.config.dev.ts",
-    "debug": "nodemon --inspect ./dist/server.bundle.debug.js 9999",
+    "debug": "nodemon ./dist/server.debug.js 9999 -- --inspect",
     "dev": "npm-run-all -p watch debug",
     "build": "cross-env NODE_ENV=prod webpack --config config/webpack.config.prod.ts",
     "prepare": "husky install",

@@ -1,18 +1,17 @@
-import { Configuration } from "webpack";
-import { merge } from "webpack-merge";
-import TerserWebpackPlugin from "terser-webpack-plugin";
-import baseWebpackConfig from "./webpack.config.base";
-import { resolve } from "./util";
+import { Configuration } from 'webpack';
+import { merge } from 'webpack-merge';
+import TerserWebpackPlugin from 'terser-webpack-plugin';
+import baseWebpackConfig from './webpack.config.base';
+import { resolve } from './util';
+import pkg from '../package.json';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require("../package.json");
 const PKG_NAME = pkg.name;
 
 const prodWebpackConfig: Configuration = merge(baseWebpackConfig, {
-    mode: "production",
+    mode: 'production',
     stats: { children: false, warnings: false },
     output: {
-        path: resolve("dist"),
+        path: resolve('dist'),
         filename: `${PKG_NAME}`,
     },
     optimization: {
@@ -38,8 +37,8 @@ const prodWebpackConfig: Configuration = merge(baseWebpackConfig, {
         splitChunks: {
             cacheGroups: {
                 commons: {
-                    name: "commons",
-                    chunks: "initial",
+                    name: 'commons',
+                    chunks: 'initial',
                     minChunks: 3,
                     enforce: true,
                 },

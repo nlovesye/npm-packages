@@ -13,7 +13,7 @@
     },
     "publish": {
       "ignoreChanges": ["ignored-file"],
-      "message": "chore(publish): package published: "
+      "message": "package published: "
     }
   }
 }
