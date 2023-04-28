@@ -1,21 +1,30 @@
-import { Nullable } from "./type";
-
 export class LocalStorage<K extends string = string> {
-  private ins: Storage = compatLS();
+  private ins: Storage = LocalStorage.compatLS();
 
-  public get<T = string>(k: K, isJson = false): Nullable<T> {
-    const str = this.ins.getItem(k);
-    if (!str) {
-      return null;
-    }
-    const result: T = !isJson ? str : JSON.parse(str);
-    return result;
+  public static compatLS(): Storage {
+    return window.localStorage;
   }
 
-  public set<T = string>(k: K, v: T, isJson = false): [K, string] {
-    const value = !isJson ? (v as string) : JSON.stringify(v);
+  private serializeResult<T = unknown>(str: string): T | void {
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      return;
+    }
+  }
+
+  public get<T = unknown>(k: K): T | void {
+    const str = this.ins.getItem(k);
+    if (!str) {
+      return;
+    }
+    return this.serializeResult(str);
+  }
+
+  public set<T extends string | object = string>(k: K, v: T): [K, T] {
+    const value = "string" === typeof v ? v : JSON.stringify(v);
     this.ins.setItem(k, value);
-    return [k, value];
+    return [k, v];
   }
 
   public remove(k: K): K {
@@ -27,8 +36,4 @@ export class LocalStorage<K extends string = string> {
     this.ins.clear();
     return true;
   }
-}
-
-function compatLS(): Storage {
-  return window.localStorage;
 }
